@@ -24,12 +24,9 @@ jobs:
       - name: Run unit tests
         run: mvn clean test
 
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: unit-test-results
-          path: target/surefire-reports/
+      - name: Run unit tests
+        run: mvn test -Dtest=!PricingIntegrationTest
+
 
   quality:
     runs-on: ubuntu-latest
@@ -75,10 +72,3 @@ jobs:
 
       - name: Run integration tests
         run: mvn test -Dtest=*IntegrationTest
-
-      - name: Upload integration test results
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: integration-test-results
-          path: target/surefire-reports/
