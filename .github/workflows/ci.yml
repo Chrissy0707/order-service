@@ -46,15 +46,6 @@ jobs:
       - name: Run quality checks
         run: mvn verify -DskipTests
 
-      - name: Upload quality reports
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: quality-reports
-          path: |
-            target/checkstyle-result.xml
-            target/spotbugsXml.xml
-
   integration-tests:
     runs-on: ubuntu-latest
     needs: quality
