@@ -1,4 +1,4 @@
-package com.devops.cicd
+package com.devops.cicd;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
